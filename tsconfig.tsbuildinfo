@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/config/db.ts","./src/controllers/authcontroller.ts","./src/entities/user.ts","./src/middlewares/logrequest.ts","./src/middlewares/sanitizeinputs.ts","./src/routes/authroutes.ts","./src/utils/jwtutils.ts","./src/utils/validateemail.ts"],"version":"5.6.2"}
