@@ -7,18 +7,21 @@ exports.verifyToken = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 // Function to generate JWT token
 const generateToken = (userId) => {
+    // userId is now explicitly a string
     const token = jsonwebtoken_1.default.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '1h' });
     return token;
 };
 exports.generateToken = generateToken;
-// Function to verify JWT token (optional, useful for authentication middleware)
+// Function to verify JWT token
 const verifyToken = (token) => {
     try {
-        const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET);
+        // Verify the token and decode it
+        const decoded = jsonwebtoken_1.default.verify(token, process.env.JWT_SECRET); // Cast the decoded payload to the expected type
         return decoded;
     }
     catch (error) {
-        throw new Error('Invalid token');
+        // More descriptive error handling
+        throw new Error('Invalid or expired token');
     }
 };
 exports.verifyToken = verifyToken;
