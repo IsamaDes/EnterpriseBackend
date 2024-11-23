@@ -9,7 +9,7 @@ dotenv.config();
 const app: Application = express();
 
 const corsOptions = {
-    origin: ['http://localhost:5174', 'https://enterprisepro-frontend.onrender.com'],
+    origin: ['http://localhost:5174', 'https://enterpriseapp.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200,
