@@ -7,6 +7,9 @@ exports.verifyToken = exports.generateToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 // Function to generate JWT token
 const generateToken = (userId) => {
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT secret is not defined');
+    }
     // userId is now explicitly a string
     const token = jsonwebtoken_1.default.sign({ userId }, process.env.JWT_SECRET, { expiresIn: '1h' });
     return token;

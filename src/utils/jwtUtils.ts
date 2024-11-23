@@ -2,6 +2,10 @@ import jwt from 'jsonwebtoken';
 
 // Function to generate JWT token
 export const generateToken = (userId: string): string => {
+    if (!process.env.JWT_SECRET) {
+        throw new Error('JWT secret is not defined');
+      }
+
   // userId is now explicitly a string
   const token = jwt.sign({ userId }, process.env.JWT_SECRET!, { expiresIn: '1h' });
   return token;
